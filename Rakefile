@@ -12,6 +12,7 @@ require 'cloud_controller'
 require_relative 'lib/tasks/rake_config'
 
 Rails.application.load_tasks
+load 'protobuf/tasks/compile.rake'
 
 begin
   require 'parallel_tests/tasks'
