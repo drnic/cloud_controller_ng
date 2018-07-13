@@ -3,9 +3,17 @@ require 'cloud_controller/locket/client'
 
 RSpec.describe VCAP::CloudController::Locket::Client do
   describe 'acceptance' do
+    before do
+
+    end
+    
     it 'works' do
-      eager_client = VCAP::CloudController::Locket::Client.new
-      too_late_client = VCAP::CloudController::Locket::Client.new
+      config = {
+        url: "http://locket.example.com:1234",
+        http_client: HttpClient.new()
+      }
+      eager_client = VCAP::CloudController::Locket::Client.new(config)
+      too_late_client = VCAP::CloudController::Locket::Client.new(config)
 
       shared_state = "empty"
 
